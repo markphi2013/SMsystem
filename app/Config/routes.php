@@ -30,13 +30,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	Router::connect(
-		'/storeHome/:action/*',
-		array(
-			'controller' => 'storeHome',
-			'action' => 'index'
-			)
-		);
+	
 	
 	Router::connect(
 		'/storeHome',

@@ -90,7 +90,7 @@ class AppController extends Controller {
     
     public function beforeRender()
     {
-        $this->layout = 'default';
+        //$this->layout = 'default';
     }
     
     

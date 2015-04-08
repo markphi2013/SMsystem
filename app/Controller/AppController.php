@@ -70,7 +70,7 @@ class AppController extends Controller {
         'Session',
         'Js',
         'Time',
-        // 'AclLink',
+        'AclLink',
         'Text'
         //'Documentation'
         );

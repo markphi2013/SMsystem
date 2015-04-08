@@ -81,5 +81,67 @@ class User extends AppModel
     }
     
     
+     public function parentNode()
+    {
+        if (!$this->id && empty($this->data)) {
+            return null;
+        }
+        if (isset($this->data['User']['group_id'])) {
+            $groupId = $this->data['User']['group_id'];
+        } else {
+            $groupId = $this->field('group_id');
+        }
+        if (!$groupId) {
+            return null;
+        } else {
+            return array('Group' => array('id' => $groupId));
+        }
+    }
+    
+    
+    #Filter variables and functions
+    public $filterFields = array(
+        'username' => array(
+        	'label' => 'username',
+        	'operators'=> array(
+                'start-with' => array(
+                    'parameter-type' => 'text'),
+                'equal-to' => array(
+                    'parameter-type' => 'text'))),
+        'group_id' => array(
+        	'label' => 'group',
+        	'operators' => array(
+                'is' => array(
+                    'parameter-type' => 'group'),
+                'not-is' =>  array(
+                    'parameter-type' => 'group'))),
+        );
+    
+    
+    public $filterOperatorOptions = array(
+        'all' => 'all',
+        'any' => 'any'
+        );  
+    
+    
+    public function fromFilterToQueryCondition($filterParam) 
+    {
+        $condition = array();
+        if ($filterParam[1] == 'group_id') {
+            if ($filterParam[2] == 'is') {
+                $condition['group_id'] = $filterParam[3];
+            } elseif ($filterParam[2] == 'not-is') {
+                $condition['group_id'] = array('$ne'=> $filterParam[3]);
+            } 
+        } elseif ($filterParam[1] == 'username') {
+            if ($filterParam[2] == 'equal-to') {
+                $condition['username'] = $filterParam[3];
+            } elseif ($filterParam[2] == 'start-with') {
+                $condition['username LIKE'] = $filterParam[3]."%"; 
+            }            
+        }
+        return $condition;
+    }
+    
     
 }

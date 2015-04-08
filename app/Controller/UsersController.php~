@@ -37,13 +37,18 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             
             if ($this->Auth->login()) {
-                $group     = $this->Group->findById($this->Session->read('Auth.User.group_id'));
+                /*$group     = $this->Group->findById($this->Session->read('Auth.User.group_id'));
                 $groupName = $group['Group']['name'];
-                $this->Session->write('groupName', $groupName);
+                $this->Session->write('groupName', $groupName);*/
                 $this->Session->setFlash(__('Login successful.'),
                     'default',
                     array('class'=>'message success'));
-                $this->redirect($this->Auth->redirect());
+                 if ($this->Session->read('Auth.User.group_id') == 1) {
+                    $this->redirect(array('controller' => 'admin'));
+                }
+                print_r($this->Session->read('Auth.User.group_id'));
+                $this->redirect(array('controller' => 'storeHome'));
+                //$this->redirect($this->Auth->redirect());
             } else {
                 if ($this->request->is('post')) {
                     $this->Session->setFlash(__('Invalid username or password, try again.'));
