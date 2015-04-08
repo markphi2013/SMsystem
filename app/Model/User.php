@@ -2,14 +2,28 @@
 App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
 
-
+/**
+*  User Model
+*
+*  @property Group $Group
+*  @property Program $Program
+*/
 class User extends AppModel
 {
     
-    public $name = 'User';
+    //public $name = 'User';
     
-    public $displayField = 'username';
-    
+    /**
+    *  Display field
+    *
+    *  @var string
+    */
+    //public $displayField = 'username';
+    /**
+    *  Validation rules
+    *
+    *  @var array
+    */
     public $validate = array(
         'username' => array(
             'notempty' => array(
@@ -20,14 +34,14 @@ class User extends AppModel
             'notempty' => array(
                 'rule' => array('notempty'),
                 ),
-            'minLength' => array(
+            /*'minLength' => array(
                 'rule' => array('minLength', 8),
                 'message' => 'Password must be at least 8 characters long'
                 ),
             'alphaNumeric' => array(
                 'rule' => '/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]+$/',
                 'message' => 'Password must be letters and numbers, and contain atleast one number'
-                ),
+                ),*/
             ),
         'email' => array(
             'email' => array(
@@ -47,41 +61,16 @@ class User extends AppModel
             ),
         );
     
-    
     public $belongsTo = array(
-        'Group' => array(
-            'className' => 'Group',
-            'foreignKey' => 'group_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-            )
-        );
+    'Group' => array(
+    'className' => 'Group',
+    'foreignKey' => 'group_id',
+    'conditions' => '',
+    'fields' => '',
+    'order' => ''
+    )
+    );
     
-    
-    public $hasAndBelongsToMany = array(
-        'Program' => array(
-            'className' => 'Program',
-            'joinTable' => 'programs_users',
-            'foreignKey' => 'user_id',
-            'associationForeignKey' => 'program_id',
-            'unique' => true,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'finderQuery' => '',
-            'deleteQuery' => '',
-            'insertQuery' => ''
-            )
-        );
-
-    public function __construct($id = false, $table = null, $ds = null)
-    {
-        parent::__construct($id, $table, $ds);
-    }
-	
     
     public function beforeSave()
     {
@@ -92,24 +81,5 @@ class User extends AppModel
     }
     
     
-    public $actsAs = array('Acl' => array('type' => 'requester'));
-    
-    
-    public function parentNode()
-    {
-        if (!$this->id && empty($this->data)) {
-            return null;
-        }
-        if (isset($this->data['User']['group_id'])) {
-            $groupId = $this->data['User']['group_id'];
-        } else {
-            $groupId = $this->field('group_id');
-        }
-        if (!$groupId) {
-            return null;
-        } else {
-            return array('Group' => array('id' => $groupId));
-        }
-    }
     
 }

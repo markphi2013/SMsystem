@@ -1,20 +1,19 @@
-@charset "utf-8";
 /**
- *
- * Generic CSS for CakePHP
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.webroot.css
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+*
+* Generic CSS for CakePHP
+*
+* CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+* Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+*
+* Licensed under The MIT License
+* Redistributions of files must retain the above copyright notice.
+*
+* @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+* @link          http://cakephp.org CakePHP(tm) Project
+* @package       app.webroot.css
+* @since         CakePHP(tm)
+* @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+*/
 
 * {
 	margin:0;
@@ -22,20 +21,24 @@
 }
 
 /** General Style Info **/
+
 body {
-	background: #003d4c;
-	color: #fff;
+	background: white;
+	color: black;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
+	/*min-width: 10%*/;
+	min-width: 840px;	 
 }
+
 a {
 	color: #003d4c;
 	text-decoration: underline;
 	font-weight: bold;
 }
 a:hover {
-	color: #367889;
+	/*color: #367889;*/
 	text-decoration:none;
 }
 a img {
@@ -43,7 +46,7 @@ a img {
 }
 h1, h2, h3, h4 {
 	font-weight: normal;
-	margin-bottom:0.5em;
+	margin-bottom:0.3em;
 }
 h1 {
 	background:#fff;
@@ -60,6 +63,8 @@ h3 {
 	color: #2c6877;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 165%;
+	/*float: left;
+	width: 300px;*/
 }
 h4 {
 	color: #993;
@@ -75,11 +80,18 @@ p {
 /** Layout **/
 #container {
 	text-align: left;
+	/*max-width: 1366px;*/
+	min-width: 800px;
+	/*min-width: 1009px;*/
 }
 
 #header{
-	padding: 10px 20px;
+	padding: 5px 20px;
+	height: 40px;
+	background: black;
+	min-width: 800px;
 }
+
 #header h1 {
 	line-height:20px;
 	background: #003d4c url('../img/cake.icon.png') no-repeat left;
@@ -101,33 +113,48 @@ p {
 	background: #fff;
 	clear: both;
 	color: #333;
-	padding: 10px 20px 40px 20px;
+	padding: 10px 20px 20px 20px;
 	overflow: auto;
+	height: 470px;	
 }
 #footer {
 	clear: both;
-	padding: 6px 10px;
-}
-#header a, #footer a {
-	color: #fff;
-}
-#cake-powered {
-	float: right;
+	padding: 6px 10px;    
+	background: white;
+	cursor: pointer;
 }
 
 /** containers **/
 div.form,
 div.index,
 div.view {
-	float:right;
-	width:76%;
-	border-left:1px solid #666;
-	padding:10px 2%;
+	/*float: right;*/
+	/*min-width: 547px;*/
+	/*border-left:1px solid #666;*/
+	padding:10px 20px 10px 0px;
+	/*height: 372px;*/
+	min-width: 719px;
+	/*width:79%;*/
+	/*padding-right: 11px;*/
+	position: absolute;
+	max-width: 1071px;
+}
+div.form2,
+{
+	/*float: right;*/
+	/*min-width: 547px;*/
+	/*border-left:1px solid #666;*/
+	padding:10px 20px 10px 0px;
+	/*height: 372px;*/
+	min-width: 719px;
+	width:79%;
+	/*padding-right: 11px;*/
+	position: absolute;
 }
 div.actions {
 	float:left;
-	width:16%;
-	padding:10px 1.5%;
+	min-width:19%;
+	padding:10px 0;
 }
 div.actions h3 {
 	padding-top:0;
@@ -140,8 +167,8 @@ table {
 	border-right:0;
 	clear: both;
 	color: #333;
-	margin-bottom: 10px;
-	width: 100%;
+	/*margin-bottom: 10px;*/
+	/*width: 100%;*/
 }
 th {
 	border:0;
@@ -161,8 +188,8 @@ th a.desc:after {
 	content: ' ⇡';
 }
 table tr td {
-	padding: 6px;
-	text-align: left;
+	/*padding: 6px;
+	text-align: left;*/
 	vertical-align: top;
 	border-bottom:1px solid #ddd;
 }
@@ -170,7 +197,7 @@ table tr:nth-child(even) {
 	background: #f9f9f9;
 }
 td.actions {
-	text-align: center;
+	text-align: left;
 	white-space: nowrap;
 }
 table td.actions a {
@@ -188,21 +215,22 @@ table td.actions a {
 	font-family: Monaco, Consolas, "Courier New", monospaced;
 }
 .cake-sql-log caption {
-	color:#fff;
+	color:black;
 }
 
 /** Paging **/
 .paging {
 	background:#fff;
 	color: #ccc;
-	margin-top: 1em;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	clear:both;
 }
 .paging .current,
 .paging .disabled,
 .paging a {
 	text-decoration: none;
-	padding: 5px 8px;
+	padding: 3px 8px;
 	display: inline-block
 }
 .paging > span {
@@ -239,21 +267,21 @@ table td.actions a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 60%;
+	width: 70%;
 }
 dl dd:nth-child(4n+2),
 dl dt:nth-child(4n+1) {
-	background: #f4f4f4;
+		background: #f0f0f0;
 }
 
 dt {
-	font-weight: bold;
+	/*	font-weight: bold;*/
 	padding-left: 4px;
 	vertical-align: top;
-	width: 10em;
+	width: 24em;
 }
 dd {
-	margin-left: 10em;
+	margin-left: 25em;
 	margin-top: -2em;
 	vertical-align: top;
 }
@@ -268,7 +296,7 @@ form {
 fieldset {
 	border: none;
 	margin-bottom: 1em;
-	padding: 16px 10px;
+	padding: 4px 10px;
 }
 fieldset legend {
 	color: #e32;
@@ -285,8 +313,10 @@ fieldset fieldset legend {
 }
 fieldset fieldset div {
 	clear: left;
-	margin: 0 20px;
+	/*	margin: 0 20px;*/
 }
+
+/* Cakephp generic css are messing up handsontable css*/
 form div {
 	clear: both;
 	margin-bottom: 1em;
@@ -297,9 +327,9 @@ form .input {
 	color: #444;
 }
 form .required {
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
-form .required label:after {
+form .required label:first-child:after {
 	color: #e32;
 	content: '*';
 	display:inline;
@@ -310,21 +340,20 @@ form div.submit {
 	margin-top: 10px;
 }
 label {
-	display: block;
-	font-size: 110%;
-	margin-bottom:3px;
+	/*	display: block;*/
+	/*	font-size: 110%;*/
+	/*	margin-bottom:3px;*/
 }
 input, textarea {
 	clear: both;
-	font-size: 140%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	padding: 1%;
+	/*padding: 1%;*/
 	width:98%;
 }
 select {
 	clear: both;
-	font-size: 120%;
-	vertical-align: text-bottom;
+	/*font-size: 120%;
+	vertical-align: text-bottom;*/
 }
 select[multiple=multiple] {
 	width: 100%;
@@ -335,15 +364,16 @@ option {
 }
 input[type=checkbox] {
 	clear: left;
-	float: left;
-	margin: 0px 6px 7px 2px;
+	/*float: left;*/
+	/*margin-top: 6px;
+	margin-left: 4px;*/
 	width: auto;
 }
 div.checkbox label {
 	display: inline;
 }
 input[type=radio] {
-	float:left;
+	/*	float:left;*/
 	width:auto;
 	margin: 6px 0;
 	padding: 0;
@@ -355,24 +385,27 @@ input[type=radio] {
 }
 input[type=submit] {
 	display: inline;
-	font-size: 110%;
 	width: auto;
 }
 form .submit input[type=submit] {
-	background:#62af56;
+	/*background:#62af56;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
 	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);
-	border-color: #2d6324;
-	color: #fff;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
-	padding: 8px 10px;
+	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);*/
+	border-color: #ACACAC;
+	color: #333;
+	/*text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;*/
+	padding: 4px 5px;
+	height: 30px;
 }
 form .submit input[type=submit]:hover {
-	background: #5BA150;
+	/*background: #5BA150;*/
+	/*color: #367889;*/
+	background: #ededed;
+	cursor: pointer;
 }
 /* Form errors */
-form .error {
+form .error:not(fieldset) {
 	background: #FFDACC;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -404,10 +437,22 @@ form .error-message {
 .message {
 	clear: both;
 	color: #fff;
-	font-size: 140%;
-	font-weight: bold;
+	/*	font-size: 140%; 
+	font-weight: bold; 
 	margin: 0 0 1em 0;
-	padding: 5px;
+	padding: 5px;*/
+	position: relative;
+	top: 5px;
+	/*left: 37%;*/
+	background: yellow;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	z-index: 10;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline;
+	white-space: nowrap;
 }
 
 .success,
@@ -428,7 +473,7 @@ p.error,
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	margin-bottom: 18px;
-	padding: 7px 14px;
+	padding: 5px;
 	color: #404040;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	-webkit-border-radius: 4px;
@@ -455,6 +500,8 @@ p.error,
 	background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
 	background-image: linear-gradient(top, #ee5f5b, #c43c35);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	position: relative;
+	display: inline-bloc;
 }
 .success {
 	clear: both;
@@ -468,6 +515,20 @@ p.error,
 	background-image: -ms-linear-gradient(top, #76BF6B, #3B8230);
 	background-image: -o-linear-gradient(top, #76BF6B, #3B8230);
 	background-image: linear-gradient(top, #76BF6B, #3B8230);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+.warning {
+	clear: both;
+	color: #5F5F5F;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	background: #FF8C0F;
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFA94B), to(#FF8C0F));
+	background-image: -webkit-linear-gradient(top, #FFA94B, #FF8C0F);
+	background-image: -moz-linear-gradient(top, #FFA94B, #FF8C0F);
+	background-image: -ms-linear-gradient(top, #FFA94B, #FF8C0F);
+	background-image: -o-linear-gradient(top, #FFA94B, #FF8C0F);
+	background-image: linear-gradient(top, #FFA94B, #FF8C0F);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 p.error {
@@ -527,7 +588,7 @@ input[type=submit],
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	text-decoration: none;
-	text-shadow: #fff 0px 1px 0px;
+	/*text-shadow: #fff 0px 1px 0px;*/
 	min-width: 0;
 	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0px 1px 1px rgba(0, 0, 0, 0.2);
@@ -563,6 +624,9 @@ input[type=submit]:active,
 .related {
 	clear: both;
 	display: block;
+	width: 70%;
+	margin-top: 30px;
+	overflow-y: auto;
 }
 
 /** Debugging **/
@@ -651,22 +715,6 @@ pre {
 	padding: 1em;
 	overflow: auto;
 	text-shadow: none;
-}
-.cake-stack-trace li {
-	padding: 10px 5px 0px;
-	margin: 0 0 4px 0;
-	font-family: monospace;
-	border: 1px solid #bbb;
-	-moz-border-radius: 4px;
-	-wekbkit-border-radius: 4px;
-	border-radius: 4px;
-	background: #dcdcdc;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));
-	background-image: -webkit-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -moz-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -ms-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: -o-linear-gradient(top, #fefefe, #dcdcdc);
-	background-image: linear-gradient(top, #fefefe, #dcdcdc);
 }
 /* excerpt */
 .cake-code-dump pre,

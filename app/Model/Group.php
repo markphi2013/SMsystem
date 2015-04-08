@@ -39,11 +39,11 @@ class Group extends AppModel
     }
     
     
-    public function hasSpecificProgramAccess($id)
+   /* public function hasSpecificProgramAccess($id)
     {
         $data = $this->findById($id);
         return $data['Group']['specific_program_access'];    
-    }
+    }*/
     
     
 }
