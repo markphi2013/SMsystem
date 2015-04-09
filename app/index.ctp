@@ -1,5 +1,5 @@
 <div class="groups index users-index">
-	<h3><?php echo __('Groups');?></h3>
+	<h3><?php echo __('Product');?></h3>
 	<div class="ttc-data-control">
 	<div id="data-control-nav" class="ttc-paging paging">
 	<?php

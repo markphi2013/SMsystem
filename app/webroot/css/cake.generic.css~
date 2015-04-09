@@ -61,7 +61,7 @@ h2 {
 }
 h3 {
 	color: #2c6877;
-	font-family:'vaerdana-bold','lucida grande', helvetica, arial, sans-serif;
+	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 165%;
 	/*float: left;
 	width: 300px;*/

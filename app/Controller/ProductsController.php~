@@ -1,0 +1,73 @@
+<?php
+App::uses('AppController', 'Controller');
+
+
+class ProductsController extends AppController
+{
+    
+    
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+    }
+    
+    
+    /**
+    * index method
+    *
+    * @return void
+    */
+    public function index() 
+    {
+        $this->Product->recursive = 0;
+        $this->set('products', $this->paginate());
+    }
+    
+    
+    /**
+    * view method
+    *
+    * @param string $product_id
+    * @return void
+    */
+    public function view($product_id = null) 
+    {
+        $this->Product->id = $product_id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid Product.'));
+        }
+        $this->set('product', $this->Product->read(null, $product_id));
+    }
+    
+    
+    /**
+    * edit method
+    *
+    * @param string $id
+    * @return void
+    */
+    public function edit($id = null)
+    {
+        $this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid group.'));
+        }
+        if ($this->request->is('post')) {
+            if ($this->Product->save($this->request->data)) {
+                $this->Session->setFlash(__('The Product has been saved.'),
+                    'default',
+                    array('class'=>'message success')
+                    );
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The product could not be saved. Please, try again.'), 
+                    'default',
+                    array('class' => "message failure")
+                    );
+            }
+        } else {
+            $this->request->data = $this->Product->read(null, $id);
+        }
+    }
+    
+} 
