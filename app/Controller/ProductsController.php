@@ -1,10 +1,14 @@
 <?php
 App::uses('AppController', 'Controller');
-
+App::uses('Product', 'Model');
+App::uses('Supplier', 'Model');
 
 class ProductsController extends AppController
 {
-    
+  
+    var $puses = array(
+        'Product',
+        'Supplier');
     
     public function beforeFilter()
     {
@@ -62,6 +66,8 @@ class ProductsController extends AppController
                     );
             }
         }
+        $suppliers   = $this->Product->Supplier->find('list');
+        $this->set(compact('suppliers'));
     }
     
     
@@ -75,7 +81,7 @@ class ProductsController extends AppController
     {
         $this->Product->id = $id;
         if (!$this->Product->exists()) {
-            throw new NotFoundException(__('Invalid group.'));
+            throw new NotFoundException(__('Invalid product.'));
         }
         if ($this->request->is('post')) {
             if ($this->Product->save($this->request->data)) {
@@ -93,6 +99,8 @@ class ProductsController extends AppController
         } else {
             $this->request->data = $this->Product->read(null, $id);
         }
+        $suppliers   = $this->Product->Supplier->find('list');
+        $this->set(compact('suppliers'));
     }
     
     

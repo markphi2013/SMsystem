@@ -11,9 +11,9 @@
 		echo "</div>";
 		echo $this->Form->input('email', array('label' => __('Email')));
 		$isAdmin = $this->AclLink->_allow('controllers/Admin');
-		//if ($isAdmin) {
+		if ($isAdmin) {
 		    echo $this->Form->input('group_id', array('label' => __('Group id')));
-		   /* $options = $programs;		
+		    $options = $programs;		
 		    echo $this->Form->input('Program', array('options'=>$options,
 		        'type'=>'select',
 		        'multiple'=>true,
@@ -25,8 +25,8 @@
             echo $this->Html->tag('label',__('Access Unmatchable Replies'));
             echo "<br /><br />";
             echo $this->Form->checkbox('can_invite_users');
-            echo $this->Html->tag('label',__('Invite new users'));	*/	    
-		//}
+            echo $this->Html->tag('label',__('Invite new users'));		    
+		}
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

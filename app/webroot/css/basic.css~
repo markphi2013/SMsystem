@@ -681,6 +681,22 @@ display: inline;
         min-width: 728px;    
         max-width:1071px;
 }
+
+.ttc-table-display-area-store {
+        /*height: 340px;*/
+        min-height: 250px;
+        padding: 10px 10px;
+        overflow: hidden;    
+        border: 2px solid lightgrey;
+        margin-bottom: 10px;   
+        background: none repeat scroll 0 0 ;
+        /*position: relative;*/
+        padding-bottom: 10px; 
+        float: left;
+        min-width: 728px;    
+        max-width:1071px;
+}
+
 .ttc-table-display-area-shortcode {
         height: 340px;
         min-height: 250px;
@@ -1308,11 +1324,11 @@ display: inline;
         margin-left: 235px;
 }
 
-.shortcode-index {
-        min-width: 819px;    
+.store-index {
+        min-width: 547px;    
         padding:10px 20px 10px 0px;    
         position: absolute;    
-        margin-left: 202px;
+        /*margin-left: 561px;*/
 }
 
 .blackets {
@@ -1382,42 +1398,42 @@ display: inline;
 .ttc-page-title {
 }
 
-.ttc-page-title .tabs {
+.ttc-data-control .tabs {
         display: inline-block;
         /*border-bottom: 2px solid #19C1FF;*/
         /*height: 22px;*/
 }
 
-.ttc-page-title .tabs ul {
+.ttc-data-control .tabs ul {
         list-style-type: none;
         margin: 0px 0px 0px 10px;
 }
 
-.ttc-page-title .tabs li {
+.ttc-data-control .tabs li {
         float: left;
         margin: 0px 10px 0px 0px;
         /*border-bottom: 5px solid #81DCFF;*/ 
         color: #81CDFF;
 }
 
-.ttc-page-title .tabs li.selected {
+.ttc-data-control .tabs li.selected {
         border-bottom: 5px solid #19C1FF;
         color: #19C1FF;
 }
 
-.ttc-page-title .tabs label {
+.ttc-data-control .tabs label {
         display: block;
         cursor: pointer;
         font-weight: bold;
 }
 
-.ttc-page-title .tabs li a {
+.ttc-data-control .tabs li a {
         /*font-weight: normal;*/
         text-decoration: none;
         color: inherit;
 }
 
-.ttc-page-title .tabs a:hover {
+.ttc-data-control .tabs a:hover {
         text-decoration: none;
         background: rgba(255,255,255,0.5);
 }
@@ -1525,8 +1541,8 @@ display: inline;
 .ttc-checkbox {
         margin-left: 10px;
 }
-/* USERLOGS SPECIFIC */
-.ttc-table-scrolling-area .user-logs .user_logs_field {
-        width: 207px;
+
+.carton-input {
+    width: 195px;
 }
 

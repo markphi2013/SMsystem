@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
-* Product Model
+* Supplier Model
 *
 */
 class Supplier extends AppModel
@@ -11,7 +11,7 @@ class Supplier extends AppModel
     *
     * @var string
     */
-    public $displayField = 'name';
+    //public $displayField = 'name';
     /**
     * Validation rules
     *

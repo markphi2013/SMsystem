@@ -11,11 +11,6 @@
 			<?php echo h($supplier['Supplier']['supplier_name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Supplier Name'); ?></dt>
-		<dd>
-			<?php echo h($supplier['Supplier']['supplier_name']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($supplier['Supplier']['date_time']); ?>

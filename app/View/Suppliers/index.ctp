@@ -19,7 +19,6 @@
 	    <thead>
             <th class="content"><?php echo $this->Paginator->sort('name');?></th>
             <th class="content"><?php echo $this->Paginator->sort('contact');?></th>
-            <th class="content"><?php echo $this->Paginator->sort('products_supplied');?></th>
             <th class="action-admin"><?php echo __('Actions');?></th>
 	    </thead>
 	    <tbody>
@@ -27,7 +26,6 @@
 	        <tr>
 	            <td class="content"><?php echo h($supplier['Supplier']['supplier_name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($supplier['Supplier']['supplier_contact']); ?>&nbsp;</td>
-	            <td class="content"><?php echo h($supplier['Supplier']['product_supplied']); ?>&nbsp;</td>
 	            <td class="actions action-admin">
 	                <?php echo $this->Html->link(__('View'), array('action' => 'view', $supplier['Supplier']['id'])); ?>
 	                <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $supplier['Supplier']['id'])); ?>

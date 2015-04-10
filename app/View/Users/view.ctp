@@ -34,36 +34,7 @@
 			&nbsp;
 		</dd>		
 	</dl>
-  <div class="related">
-	<h3><?php echo __('Accessible Programs');?></h3>
-	<?php if (!empty($user['Program'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>l
-		<th><?php echo __('Name'); ?></th>
-		<th class="actions"><?php
-		if ($isAdmin) {
-		    echo __('Actions');
-		}
-		?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($user['Program'] as $program): ?>
-		<tr>
-		<td><?php echo $program['name'];?></td>			 
-			<td class="actions">
-			<?php
-			if ($isAdmin) {
-				echo $this->Html->link(__('View'), array('controller' => 'programs', 'action' => 'view', $program['id']));				
-				echo $this->Html->link(__('Edit'), array('controller' => 'programs', 'action' => 'edit', $program['id'])); 
-			}
-			?>
-			</td> 		
-		</tr>
-	<?php endforeach; ?>
-	</table>
-	<?php endif; ?>
-  </div>
+  
 </div>
 <div class="admin-action">
 <div class="actions">
@@ -81,7 +52,7 @@
 		if ($isAdmin) {
 		echo $this->Html->link(__('Back to Admin menu'), array('controller' => 'admin', 'action' => 'index'));
 		}else{
-		echo $this->Html->link(__('Back to Programs'), array('controller' => 'programs', 'action' => 'index')); 
+		echo $this->Html->link(__('Back'), array('controller' => 'storeHome', 'action' => 'index')); 
 		}
 		?></li>
 	</ul>

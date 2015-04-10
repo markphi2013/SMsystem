@@ -32,13 +32,13 @@
 
 	
 	
-	Router::connect(
+	/*Router::connect(
 		'/storeHome',
 		array(
 			'controller' => 'storeHome',
 			'action' => 'index'
 			)
-		);
+		);*/
 	
 	
 /**

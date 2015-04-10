@@ -11,7 +11,7 @@ class Product extends AppModel
     *
     * @var string
     */
-    public $displayField = 'name';
+   // public $displayField = 'name';
     /**
     * Validation rules
     *
@@ -40,7 +40,15 @@ class Product extends AppModel
             ),
         );
     
-    
+    public $belongsTo = array(
+    'Supplier' => array(
+    'className' => 'Supplier',
+    'foreignKey' => 'supplier_id',
+    'conditions' => '',
+    'fields' => '',
+    'order' => ''
+    )
+    );
     public $actsAs = array('Acl' => array('type' => 'requester'));
     
     

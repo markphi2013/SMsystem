@@ -18,11 +18,6 @@ class Product extends AppModel
     * @var array
     */
     public $validate = array(
-        'id' => array(
-            'numeric' => array(
-                'rule' => array('numeric'),
-                ),
-            ),
         'product_name' => array(
             'notempty' => array(
                 'rule' => array('notempty'),

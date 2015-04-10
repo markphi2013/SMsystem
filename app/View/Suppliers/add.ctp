@@ -7,7 +7,6 @@
 	    echo $this->Form->input('id');
 		echo $this->Form->input('supplier_name', array('label' => __('Name')));
 		echo $this->Form->input('supplier_contact', array('label' => __('Supplier contact')));
-		echo $this->Form->input('product_supplied', array('label' => __('Products supplied')));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
