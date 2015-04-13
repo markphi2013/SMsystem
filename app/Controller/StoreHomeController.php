@@ -63,6 +63,11 @@ class StoreHomeController extends AppController
         if (!$this->StoreHome->exists()) {
             throw new NotFoundException(__('Invalid storeHome.'));
         }*/
+        $this->Product->product_id = $id;
+        print_r($id);
+        /*if (!$this->StoreHome->exists()) {
+            throw new NotFoundException(__('Invalid storeHome.'));
+        }*/
         if ($this->request->is('post')) {
             if ($this->StoreHome->save($this->request->data)) {
                 $this->Session->setFlash(__('The storeHome has been saved.'),

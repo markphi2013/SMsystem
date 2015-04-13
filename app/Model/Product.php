@@ -41,14 +41,15 @@ class Product extends AppModel
         );
     
     public $belongsTo = array(
-    'Supplier' => array(
-    'className' => 'Supplier',
-    'foreignKey' => 'supplier_id',
-    'conditions' => '',
-    'fields' => '',
-    'order' => ''
-    )
-    );
+        'Supplier' => array(
+            'className' => 'Supplier',
+            'foreignKey' => 'supplier_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+            )
+        );
+    
     public $actsAs = array('Acl' => array('type' => 'requester'));
     
     

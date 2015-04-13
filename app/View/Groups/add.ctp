@@ -5,7 +5,7 @@
 		
 	<?php
 		echo $this->Form->input('name', array('label' => __('Name')));
-		echo $this->Form->input('specific_program_access', array('label' => __('Specific Program Access')));
+		//echo $this->Form->input('specific_program_access', array('label' => __('Specific Program Access')));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

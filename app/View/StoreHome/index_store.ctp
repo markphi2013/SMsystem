@@ -5,7 +5,12 @@
             <ul>
                 <li><?php echo $this->Html->link(__('New'), array('action' => 'add')); ?></li>
                 <li><?php echo $this->Html->link(__('Update'), array('action' => 'edit')); ?></li>
-                <li><?php echo $this->Html->link(__('Back to Admin menu'), array('controller' => 'storeHome', 'action' => 'index')); ?></li>
+                <li><?php echo $this->AclLink->generateButton(
+                    __('Back to Admin menu'),
+                    null,
+                    'storeHome',
+                    'index'
+                    ); ?></li>
             </ul>
         </div>	
         <div id="data-control-nav" class="ttc-paging paging">
@@ -53,8 +58,8 @@
 	            <td class="content"><?php //print_r($storeIteam);
 	            echo h($this->Time->format('d/m/Y', $storeIteam['StoreHome']['date_time'])); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($storeIteam['StoreHome']['product_import_code']); ?>&nbsp;</td>
-	            <td class="content"><?php echo h($storeIteam['Product']['product_name']); ?>&nbsp;</td>
-	            <td class="content"><?php echo h($storeIteam['Supplier']['supplier_name']); ?>&nbsp;</td>
+	            <td class="content"><?php echo h($storeIteam['Product']['name']); ?>&nbsp;</td>
+	            <td class="content"><?php echo h($storeIteam['Supplier']['name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($storeIteam['StoreHome']['previous_cartons']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($storeIteam['StoreHome']['previous_pieces']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($storeIteam['StoreHome']['current_cartons']); ?>&nbsp;</td>

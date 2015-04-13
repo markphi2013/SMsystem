@@ -8,7 +8,7 @@
 		echo $this->Form->input('password', array('label' => __('Password')));
 		echo $this->Form->input('email', array('label' => __('Email')));
 		echo $this->Form->input('group_id', array('label' =>__('Group id')));
-		$options = $programs;		
+		/*$options = $programs;		
 		echo $this->Form->input(
 			'Program', array(
 			    'options'=>$options,
@@ -17,7 +17,7 @@
 			    'label'=>__('Program'),	                
 			    'style'=>'margin-bottom:0px'
 				));
-	    $this->Js->get('document')->event('ready','$("#ProgramProgram").chosen();');
+	    $this->Js->get('document')->event('ready','$("#ProgramProgram").chosen();');*/
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
@@ -27,7 +27,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Back to Admin menu'), array('controller' => 'admin', 'action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Back to Admin menu'), array('controller' => 'storeHome', 'action' => 'index')); ?></li>
 	</ul>
 </div>
 </div>

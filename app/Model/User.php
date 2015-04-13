@@ -35,13 +35,13 @@ class User extends AppModel
                 'rule' => array('notempty'),
                 ),
             /*'minLength' => array(
-                'rule' => array('minLength', 8),
-                'message' => 'Password must be at least 8 characters long'
-                ),
+            'rule' => array('minLength', 8),
+            'message' => 'Password must be at least 8 characters long'
+            ),
             'alphaNumeric' => array(
-                'rule' => '/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]+$/',
-                'message' => 'Password must be letters and numbers, and contain atleast one number'
-                ),*/
+            'rule' => '/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]+$/',
+            'message' => 'Password must be letters and numbers, and contain atleast one number'
+            ),*/
             ),
         'email' => array(
             'email' => array(
@@ -81,8 +81,9 @@ class User extends AppModel
         return true;
     }
     
+    public $actsAs = array('Acl' => array('type' => 'requester'));
     
-     public function parentNode()
+    public function parentNode()
     {
         if (!$this->id && empty($this->data)) {
             return null;

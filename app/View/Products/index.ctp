@@ -25,8 +25,8 @@
 	    <tbody>
 	        <?php foreach ($products as $product): ?>
 	        <tr>
-	            <td class="content"><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
-	            <td class="content"><?php echo h($product['Supplier']['supplier_name']); ?>&nbsp;</td>
+	            <td class="content"><?php echo h($product['Product']['name']); ?>&nbsp;</td>
+	            <td class="content"><?php echo h($product['Supplier']['name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($product['Product']['pieces_per_carton']); ?>&nbsp;</td>
 	            <td class="actions action-admin">
 	                <?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>

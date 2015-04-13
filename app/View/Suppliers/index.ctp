@@ -24,12 +24,12 @@
 	    <tbody>
 	        <?php foreach ($suppliers as $supplier): ?>
 	        <tr>
-	            <td class="content"><?php echo h($supplier['Supplier']['supplier_name']); ?>&nbsp;</td>
+	            <td class="content"><?php echo h($supplier['Supplier']['name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($supplier['Supplier']['supplier_contact']); ?>&nbsp;</td>
 	            <td class="actions action-admin">
 	                <?php echo $this->Html->link(__('View'), array('action' => 'view', $supplier['Supplier']['id'])); ?>
 	                <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $supplier['Supplier']['id'])); ?>
-	                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $supplier['Supplier']['id']), null, __('Are you sure you want to delete "%s" group?', $supplier['Supplier']['supplier_name'])); ?>
+	                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $supplier['Supplier']['id']), null, __('Are you sure you want to delete "%s" group?', $supplier['Supplier']['name'])); ?>
 	             </td>
 	         </tr>
 	        <?php endforeach; ?>

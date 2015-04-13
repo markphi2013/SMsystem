@@ -54,6 +54,10 @@ class UsersController extends AppController
                 if ($this->Session->read('Auth.User.group_id') == 1) {
                     $this->redirect(array('controller' => 'storeHome'));
                 }
+                
+                if ($this->Session->read('Auth.User.group_id') == 7) {
+                    $this->redirect(array('controller' => 'storeHome', 'action'=>'indexStore'));
+                }
                 //$this->redirect(array('controller' => 'storeHome'));
                 $this->redirect($this->Auth->redirect());
             } else {
@@ -209,6 +213,26 @@ class UsersController extends AppController
     }
     
     
+    public function add()
+    {
+        if ($this->request->is('post')) {
+            $this->User->create();
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(
+                    __('The user has been saved.'),
+                    'default',
+                    array('class'=>'message success')
+                    );
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        }
+        $groups   = $this->User->Group->find('list');
+        $this->set(compact('groups'));
+    }
+    
+    
     protected function _getFilterFieldOptions()
     {   
         return $this->LocalizeUtils->localizeLabelInArray(
@@ -238,6 +262,21 @@ class UsersController extends AppController
         $Group->id = $group['Group']['id'];
         $this->Acl->allow($Group, 'controllers');
         echo "Acl Done: ". $group['Group']['name']."</br>";
+        
+        //allow store manager to stock
+        $group = $Group->find('first', array('conditions' => array('name' => 'Store Manager1')));
+        if ($group == null) {
+            echo "Acl ERROR: cannot find the group store manager</br>";
+        } else {
+            $Group->id = $group['Group']['id']."</br";
+            $this->Acl->deny($Group, 'controllers');
+            $this->Acl->deny($Group, 'controllers/storeHome');
+            $this->Acl->allow($Group, 'controllers/storeHome/indexStore');
+            $this->Acl->allow($Group, 'controllers/storeHome/add');
+            $this->Acl->allow($Group, 'controllers/storeHome/edit');
+
+            echo "Acl Done: ". $group['Group']['name']."</br>";
+        }
         
         echo 'AllDone';
         exit;

@@ -6,7 +6,7 @@ App::uses('Supplier', 'Model');
 class ProductsController extends AppController
 {
   
-    var $puses = array(
+    var $uses = array(
         'Product',
         'Supplier');
     
