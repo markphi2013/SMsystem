@@ -8,11 +8,11 @@
 	<td>
 	<?php 
 	echo $this->Form->input('product_id', array('label' => __('Product Name'),'id' => 'product-name'));
-	//$this->Js->set('storeUpdateOptions', $r);
-	$this->Js->get('#product-name')->event('change',
-	    'var productName = $("#product-name :selected").val();
-	    alert(productName);
-	    $("#previous-cartons").val(productName);
+	$this->Js->set('storeUpdateOptions', $r);
+	$this->js->get('#product-name')->event('change',
+	    'var product-name = $("product-name :selected").val();
+	    var supplierName = window.app.storeUpdateOptions[0];
+	    $("#supplier-name").val(supplierName);
 	    ');
 	
 	
@@ -26,14 +26,9 @@
 	<tr>
 	<td><?php echo $this->Form->input('product_import_code', array('label' => __('Import Code'))); ?></td>
 	</tr>
-	<tr><td><?php echo $this->Form->input('supplier_id', array(
-	    'label' => __('Supplier name'),
-	    'id' => 'supplier-name',
-	    'readonly' => true)); ?></td></tr>
+	<tr><td><?php echo $this->Form->input('supplier_id', array('label' => __('Supplier name'), 'id' => 'supplier-name')); ?></td></tr>
 	<tr>
-	<td class="carton-input"><?php  echo $this->Form->input('previous_cartons', array(
-	    'label' => __('Previous carton'),
-	    'id' =>'previous-carton')); ?></td>
+	<td class="carton-input"><?php  echo $this->Form->input('previous_cartons', array('label' => __('Previous carton'))); ?></td>
 	<td class="carton-input"><?php  echo $this->Form->input('previous_pieces', array('label' => __('Previous pieces'))); ?></td>
 	</tr>
 	<tr>

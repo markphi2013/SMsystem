@@ -10,8 +10,6 @@ class StoreHomeController extends AppController
         'Product'
         );
     
-    var $helpers = array('Js' => array('Jquery'));
-    
     public function beforeFilter()
     {
         parent::beforeFilter();
