@@ -1,0 +1,19 @@
+{
+    "name": "markphilip/composer",
+    "authors": [
+        {
+            "name": "markphi2013",
+            "email": "markphi119@gmail.com"
+        }
+    ],
+    "require": {
+    	"cakephp/cakephp": "2.6.1"
+    	},
+    "repositories": [
+    {
+         "type": "composer",
+         "url": "https://packagist.org"
+    },
+    { "packagist": false }
+    ]
+}

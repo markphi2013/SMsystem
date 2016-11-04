@@ -6,12 +6,14 @@
 <div class="admin-action">
 <div class="actions break">
 	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-        <li><?php echo $this->Html->link(__('Stock Management'), array('controller' => 'storeHome', 'action' => 'indexStore')); ?> </li>
-		<li><?php echo $this->Html->link(__('Supplier Management'), array('controller' => 'Suppliers')); ?> </li>
-		<li><?php echo $this->Html->link(__('Products Management'), array('controller' => 'products')); ?> </li>
-		<li><?php echo $this->Html->link(__('Users Management'), array('controller' => 'users')); ?></li>
-		<li><?php echo $this->Html->link(__('Groups Management'), array('controller' => 'groups')); ?> </li>
+	<ul> 
+		<li><?php echo $this->Html->link(__('Sales'), array('controller' => 'products')); ?> </li>       
+        <li><?php echo $this->Html->link(__('Products'), array('controller' => 'products')); ?> </li>
+		<li><?php echo $this->Html->link(__('Suppliers'), array('controller' => 'Suppliers')); ?> </li>
+		<li><?php echo $this->Html->link(__('Customers'), array('controller' => 'Customers')); ?> </li>
+		<li><?php echo $this->Html->link(__('Stock '), array('controller' => 'storeHome', 'action' => 'indexStore')); ?> </i>		
+		<li><?php echo $this->Html->link(__('Users'), array('controller' => 'users')); ?></li>
+		<li><?php echo $this->Html->link(__('User Groups'), array('controller' => 'groups')); ?> </li>
 	</ul>
 </div>
 </div>

@@ -1,10 +1,10 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
-* Supplier Model
+* Customer Model
 *
 */
-class Supplier extends AppModel
+class Customer extends AppModel
 {
     /**
     * Display field
@@ -18,17 +18,12 @@ class Supplier extends AppModel
     * @var array
     */
     public $validate = array(
-        'company_name' => array(
+        'customer_name' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
                 ),
             ),
-        'supplier_name' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
-                ),
-            ),
-        'supplier_contact'=> array(
+        'customer_contact'=> array(
             'notempty' => array(
                 'rule' => array('notempty'),
                 ),

@@ -9,9 +9,16 @@
 	<td><?php echo $this->Form->input('product_import_code', array('label' => __('Import Code'))); ?></td>
 	</tr>
 	<tr>
-	<td><?php echo $this->Form->input('product_id', array('label' => __('Product Name'))); ?></td>
+	<td><?php 
+    echo $this->Html->tag('label', __('Product Name'));
+	echo $this->Form->select('product_id', $products, array('empty' => __('Choose one.....')));
+	?></td>
 	</tr>
-	<tr><td><?php echo $this->Form->input('supplier_id', array('label' => __('Supplier name'))); ?></td></tr>
+	<tr><td></td></tr>
+	<tr><td><?php 
+	echo $this->Html->tag('label', __('Supplier name'));
+	echo $this->Form->select('supplier_id', $suppliers, array('empty' => __('Choose one.....')));
+	 ?></td></tr>
 	<tr>
 	<td class="carton-input"><?php  echo $this->Form->input('current_cartons', array('label' => __('Carton'))); ?></td>
 	<td class="carton-input"><?php  echo $this->Form->input('current_pieces', array('label' => __('Pieces'))); ?></td>

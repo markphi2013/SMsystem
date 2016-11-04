@@ -8,12 +8,12 @@
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($supplier['Supplier']['name']); ?>
+			<?php echo h($supplier['Supplier']['supplier_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($supplier['Supplier']['date_time']); ?>
+			<?php echo h($supplier['Supplier']['created']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -23,9 +23,9 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Supplier'), array('action' => 'edit', $supplier['Supplier']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Supplier'), array('action' => 'delete', $supplier['Supplier']['id']), null, __('Are you sure you want to delete "%s" supplier?', $supplier['Supplier']['name'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Supplier'), array('action' => 'delete', $supplier['Supplier']['id']), null, __('Are you sure you want to delete "%s" supplier?', $supplier['Supplier']['supplier_name'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Supplier'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Back to Admin menu'), array('controller' => 'storeHome', 'action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Back to menu'), array('controller' => 'storeHome', 'action' => 'index')); ?></li>
 	</ul>
 </div>
 </div>

@@ -18,6 +18,11 @@ class Product extends AppModel
     * @var array
     */
     public $validate = array(
+        'product_isbn' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                ),
+            ),
         'product_name' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
@@ -27,13 +32,18 @@ class Product extends AppModel
             'numeric' => array(
                 'rule' => array('numeric'),
                 ),
-            ),
-        'supplier_name'=> array(
-            'notempty' => array(
-                'rule' => array('notempty'),
+            ),        
+        'cost_price' => array(
+            'numeric' => array(
+                'rule' => array('numeric'),
                 ),
             ),
-        'pieces_per_carton' => array(
+        'retail_price' => array(
+            'numeric' => array(
+                'rule' => array('numeric'),
+                ),
+            ),
+        'quantity_stock' => array(
             'numeric' => array(
                 'rule' => array('numeric'),
                 ),

@@ -105,13 +105,13 @@ class UsersController extends AppController
         $this->User->recursive = 0;
         $users = $this->paginate("User");
         # to display a username in invited_by field
-        foreach($users as &$user) {
+        /*foreach($users as &$user) {
             $username = $this->User->find('first', array(
                 'fields' => array('User.username'),
                 'conditions' =>array('User.id' => $user['User']['invited_by'])
                 ));
             $user['User']['invited_by'] = ($username ? $username['User']['username']: __("admin"));
-        }
+        }*/
         $this->set(compact('users'));
     }
     

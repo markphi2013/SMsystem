@@ -66,7 +66,7 @@ class ProductsController extends AppController
                     );
             }
         }
-        $suppliers   = $this->Product->Supplier->find('list');
+        $suppliers  = $this->Product->Supplier->find('list', array('fields' => array('supplier_name')));
         $this->set(compact('suppliers'));
     }
     
@@ -99,10 +99,42 @@ class ProductsController extends AppController
         } else {
             $this->request->data = $this->Product->read(null, $id);
         }
-        $suppliers   = $this->Product->Supplier->find('list');
+        $suppliers  = $this->Product->Supplier->find('list', array('fields' => array('supplier_name')));
         $this->set(compact('suppliers'));
     }
     
+
+    /**
+    * receiving method
+    *
+    * @param string $id
+    * @return void
+    */
+    public function receiving()
+    {
+       /* $this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid product.'));
+        }*/
+        if ($this->request->is('post')) {
+            if ($this->Product->save($this->request->data)) {
+                $this->Session->setFlash(__('The Product has been saved.'),
+                    'default',
+                    array('class'=>'message success')
+                    );
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The product could not be saved. Please, try again.'), 
+                    'default',
+                    array('class' => "message failure")
+                    );
+            }
+        } else {
+            $this->request->data = $this->Product->read(null, $id);
+        }
+        $suppliers  = $this->Product->Supplier->find('list', array('fields' => array('supplier_name')));
+        $this->set(compact('suppliers'));
+    }
     
     /**
     * delete method
@@ -130,5 +162,17 @@ class ProductsController extends AppController
         $this->redirect(array('action' => 'index'));
     }
     
+
+    protected function setOptions()
+    {
+        $countries                  = $this->Country->getNamesByNames();
+        $prefixesByCountriesOptions = $this->Country->getPrefixesByNames();
+        $errorTemplateOptions       = $this->Template->getTemplateOptions('unmatching-keyword');
+        
+        $maxCharacterPerSmsOptions = array_combine(
+            $this->ShortCode->maxCharacterPerSmsOptions, 
+            $this->ShortCode->maxCharacterPerSmsOptions);
+        $this->set(compact('errorTemplateOptions', 'prefixesByCountriesOptions', 'maxCharacterPerSmsOptions', 'countries'));
+    }
     
 }

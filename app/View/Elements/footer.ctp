@@ -1,7 +1,7 @@
 <div class="powered-by">
 <?php
 $vusionVersion = Configure::read('vusion.version');
-echo $this->Html->tag('span', "Vusion $vusionVersion powered by", array('class' => 'powered-by-text'));
+echo $this->Html->tag('span', "SM $vusionVersion powered by", array('class' => 'powered-by-text'));
 //echo '<a href= "http://connect4change.nl" target = "_blank">';
 //echo '<img src = "/img/connect4change-logo.png"  class = "powered-by-logo">';
 //echo '</a>';

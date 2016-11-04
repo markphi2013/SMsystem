@@ -53,58 +53,18 @@ class StoreHomeController extends AppController
                     );
             }
         }
-        $products  = $this->StoreHome->Product->find('list');
-        $suppliers  = $this->StoreHome->Supplier->find('list');
-        $this->set(compact('products', 'suppliers'));
+        $this->setOptions();
     }
-    
-    
-    public function edit()
+         
+
+    protected function setOptions()
     {
-        $storeUpdateOptions = $this->StoreHome->find('list');
-        $r = $this->StoreHome->find('list', array(
-            'fields' => array('supplier_id','previous_cartons','previous_pieces')
-            ));
-        print_r($r);
-        Print_r('***********');
-        print_r($storeUpdateOptions);
-        
-        /*$this->StoreHome->id = $id;
-        if (!$this->StoreHome->exists()) {
-            throw new NotFoundException(__('Invalid storeHome.'));
-        }
-        $this->Product->product_id = $id;
-        print_r($id);
-        /*if (!$this->StoreHome->exists()) {
-            throw new NotFoundException(__('Invalid storeHome.'));
-        }*/
-        /*if ($this->request->is('post')) {
-            if ($this->StoreHome->save($this->request->data)) {
-                $this->Session->setFlash(__('The storeHome has been saved.'),
-                    'default',
-                    array('class'=>'message success')
-                    );
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The storeHome could not be saved. Please, try again.'), 
-                    'default',
-                    array('class' => "message failure")
-                    );
-            }
-        } else {
-            $this->request->data = $this->StoreHome->read(null, $id);
-        }*/
-        $products  = $this->StoreHome->Product->find('list');
-        $suppliers = $this->StoreHome->Supplier->find('list');
-        $this->set(compact('products', 'suppliers', 'r'));
-    }
     
-    //protected function setOptions()
-    //{
+    $suppliers = $this->StoreHome->Supplier->find('list', array('fields' => array('supplier_name')));
+    $products  = $this->StoreHome->Product->find('list', array('fields' => array('product_name')));
+        $this->set(compact('suppliers','products'));
     
-    
-    
-   // }
+   }
     
     
 }

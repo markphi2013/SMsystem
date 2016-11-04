@@ -13,12 +13,7 @@
 	    'var productName = $("#product-name :selected").val();
 	    alert(productName);
 	    $("#previous-cartons").val(productName);
-	    ');
-	
-	
-	
-	
-	
+	    ');	
 	
 	?>
 	</td>
