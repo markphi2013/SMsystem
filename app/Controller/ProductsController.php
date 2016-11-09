@@ -2,13 +2,17 @@
 App::uses('AppController', 'Controller');
 App::uses('Product', 'Model');
 App::uses('Supplier', 'Model');
+App::uses('Receive', 'Model');
 
 class ProductsController extends AppController
 {
   
     var $uses = array(
         'Product',
-        'Supplier');
+        'Supplier',
+        'Receive');
+
+    var $helpers = array('Js' => array('Jquery'));
     
     public function beforeFilter()
     {
@@ -117,23 +121,34 @@ class ProductsController extends AppController
             throw new NotFoundException(__('Invalid product.'));
         }*/
         if ($this->request->is('post')) {
-            if ($this->Product->save($this->request->data)) {
+            
+            if ($this->Receive->save($this->request->data)) {
+                $newQuantityStock =  $this->request->data['Receive']['current_stock'] + $this->request->data['Receive']['new_stock'];
+                $productUpdateQuantity = array('quantity_stock' => $newQuantityStock);
+                $productIsbnWhere = array('product_isbn' => $this->request->data['Receive']['product_isbn']);
+                $this->Product->updateAll($productUpdateQuantity,$productIsbnWhere);
+
                 $this->Session->setFlash(__('The Product has been saved.'),
                     'default',
                     array('class'=>'message success')
                     );
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The product could not be saved. Please, try again.'), 
+                $this->Session->setFlash(__('The product could not be received. Please, try again.'), 
                     'default',
                     array('class' => "message failure")
                     );
             }
-        } else {
-            $this->request->data = $this->Product->read(null, $id);
         }
+        /* else {
+            $this->request->data = $this->Product->read(null, $id);
+        }*/
         $suppliers  = $this->Product->Supplier->find('list', array('fields' => array('supplier_name')));
-        $this->set(compact('suppliers'));
+        //$products  = $this->Product->find('list', array('fields' => array('product_isbn', 'product_name', 'quantity_stock')));
+        $productNamesC  = $this->Product->find('list' , array('fields' => array('product_isbn', 'product_name')));
+        $products  = $this->Product->find('all', array('fields' => array('quantity_stock', 'product_name', 'product_isbn', 'supplier_id', 'product_isbn')));
+       
+        $this->set(compact('suppliers', 'products', 'productNamesC'));
     }
     
     /**
@@ -163,7 +178,7 @@ class ProductsController extends AppController
     }
     
 
-    protected function setOptions()
+  /*  protected function setOptions()
     {
         $countries                  = $this->Country->getNamesByNames();
         $prefixesByCountriesOptions = $this->Country->getPrefixesByNames();
@@ -173,6 +188,6 @@ class ProductsController extends AppController
             $this->ShortCode->maxCharacterPerSmsOptions, 
             $this->ShortCode->maxCharacterPerSmsOptions);
         $this->set(compact('errorTemplateOptions', 'prefixesByCountriesOptions', 'maxCharacterPerSmsOptions', 'countries'));
-    }
+    }*/
     
 }

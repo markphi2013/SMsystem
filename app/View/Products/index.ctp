@@ -17,6 +17,7 @@
 	<div class="ttc-table-scrolling-area display-height-size">
 	<table cellpadding="0" cellspacing="0">
 	    <thead>
+	    	<th class="content"><?php echo $this->Paginator->sort('product_isbn');?></th>
             <th class="content"><?php echo $this->Paginator->sort('product_name');?></th>
             <th class="content"><?php echo $this->Paginator->sort('supplier_name');?></th>
             <th class="content"><?php echo $this->Paginator->sort('cost_price');?></th>
@@ -27,6 +28,7 @@
 	    <tbody>
 	        <?php foreach ($products as $product): ?>
 	        <tr>
+	        	<td class="content"><?php echo h($product['Product']['product_isbn']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($product['Supplier']['supplier_name']); ?>&nbsp;</td>
 	            <td class="content"><?php echo h($product['Product']['cost_price']); ?>&nbsp;</td>
@@ -49,7 +51,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Receiving Product'), array('action' => 'edit')); ?></li>
+		<li><?php echo $this->Html->link(__('Receiving Product'), array('action' => 'receiving')); ?></li>
 		<li><?php echo $this->Html->link(__('Back to menu'), array('controller' => 'storeHome', 'action' => 'index')); ?></li>
 	</ul>
 </div>

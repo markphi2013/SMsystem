@@ -40,7 +40,7 @@ class RequireJsHelper extends AppHelper
 	public function writeBuffer()
 	{
 		$scriptBlock = '
-		    require(["/js/common"], function() {
+		    require(["/SMsystem/app/webroot/js/common"], function() {
 		        require(["vusion"], function(vusion){
 					vusion.setData('.json_encode(array_values(array_unique($this->_variables))).');
 		               require('.json_encode(array_values(array_unique($this->_scripts))) .', function(){
