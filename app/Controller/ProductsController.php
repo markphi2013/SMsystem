@@ -116,10 +116,7 @@ class ProductsController extends AppController
     */
     public function receiving()
     {
-       /* $this->Product->id = $id;
-        if (!$this->Product->exists()) {
-            throw new NotFoundException(__('Invalid product.'));
-        }*/
+       
         if ($this->request->is('post')) {
             
             if ($this->Receive->save($this->request->data)) {
@@ -140,9 +137,7 @@ class ProductsController extends AppController
                     );
             }
         }
-        /* else {
-            $this->request->data = $this->Product->read(null, $id);
-        }*/
+        
         $suppliers  = $this->Product->Supplier->find('list', array('fields' => array('supplier_name')));
         //$products  = $this->Product->find('list', array('fields' => array('product_isbn', 'product_name', 'quantity_stock')));
         $productNamesC  = $this->Product->find('list' , array('fields' => array('product_isbn', 'product_name')));

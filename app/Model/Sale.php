@@ -1,10 +1,10 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
-* Receive Model
+* Product Model
 *
 */
-class Receive extends AppModel
+class Sale extends AppModel
 {
     /**
     * Display field
@@ -18,17 +18,17 @@ class Receive extends AppModel
     * @var array
     */
     public $validate = array(
-        'product_isbn' => array(
+        'product_id' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
                 ),
             ),
-        'product_name' => array(
+        'sale_price' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
                 ),
             ),
-        'quantity_stock' => array(
+        'quantity_sold' => array(
             'numeric' => array(
                 'rule' => array('numeric'),
                 ),

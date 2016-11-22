@@ -1555,3 +1555,12 @@ display: inline;
 .ttc-table-display-area-store .ttc-table-scrolling-area .content-prev {
     color:#FF8C0F;
 }
+
+.sale-qty-input {
+    width: 68px;
+     height:10px;
+      padding-top:6px;
+       padding-bottom: 4px; 
+       margin-right: 4px; 
+       font-size:15px;
+}

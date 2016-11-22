@@ -7,7 +7,7 @@
 <div class="actions break">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul> 
-		<li><?php echo $this->Html->link(__('Sales'), array('controller' => 'products')); ?> </li>       
+		<li><?php echo $this->Html->link(__('Sales'), array('controller' => 'sales')); ?> </li>       
         <li><?php echo $this->Html->link(__('Products'), array('controller' => 'products')); ?> </li>
 		<li><?php echo $this->Html->link(__('Suppliers'), array('controller' => 'Suppliers')); ?> </li>
 		<li><?php echo $this->Html->link(__('Customers'), array('controller' => 'Customers')); ?> </li>
